@@ -12038,7 +12038,7 @@ svg text {
 
 .custom-file-label {
     background: #fff;
-    border-color: #7367F0;
+    line-height: 2.4;
 }
 
 input[type="checkbox"]:after {
@@ -12180,6 +12180,7 @@ input[type="checkbox"]:checked:after {
 
 .form-control.is-invalid {
     border-color: #EA5455 !important;
+    border-right: 0px !important;
 }
 
 .form-control.is-invalid:focus {
