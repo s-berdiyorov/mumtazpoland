@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use App\Models\Traits\UploadImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
 
 class Category extends Model
 {
-    use HasFactory, HasTranslations;
+    use HasFactory, HasTranslations, UploadImage;
+
+    protected string $imageAttribute = 'image';
 
     protected $translatable = [
         'title'
