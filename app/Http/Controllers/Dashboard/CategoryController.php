@@ -4,20 +4,15 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Repositories\CategoryRepository;
 use App\Http\Requests\CategoryRequest;
-use App\Models\Category;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class CategoryController extends BaseController
 {
     const ROUTE = 'categories';
-    /**
-     * @var CategoryRepository
-     */
-    private $repository;
+
+    private CategoryRepositoryInterface $repository;
 
     /**
      * @param CategoryRepositoryInterface $repository
@@ -80,7 +75,11 @@ class CategoryController extends BaseController
         return $this->redirectWithAlert($result, self::ROUTE, 'update', 'info');
     }
 
-    public function destroy(int $id)
+    /**
+     * @param int $id
+     * @return RedirectResponse
+     */
+    public function destroy(int $id): RedirectResponse
     {
         $result = $this->repository->destroy($id);
 

@@ -25,6 +25,18 @@ class CategoryRepository implements CategoryRepositoryInterface
     }
 
     /**
+     * @return Collection
+     */
+    public function allForComboBox(): Collection
+    {
+        return $this->model::query()
+            ->select([
+                'id',
+                'title'
+            ])->get();
+    }
+
+    /**
      * @return LengthAwarePaginator
      */
     public function paginate(): LengthAwarePaginator
