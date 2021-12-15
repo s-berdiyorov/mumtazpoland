@@ -19,7 +19,7 @@ class BaseController extends Controller
     protected function redirectWithAlert($result, $route, $action, string $type = 'success'): RedirectResponse
     {
         $message = match ($action) {
-            "create" => 'Successfully saved',
+            "create" => 'Successfully created',
             "update" => 'Successfully updated',
             "delete" => 'Successfully deleted',
         };
